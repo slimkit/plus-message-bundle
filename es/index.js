@@ -2,13 +2,13 @@ import analyze from './analyze';
 import isEmpty from './utils/isEmpty';
 
 export { analyze, isEmpty };
-export default (messageData, defaultMessage) => {
+export default (message, defaultMessage) => {
 
-  const { errors } = messageData;
+  const { errors } = message;
 
   if (errors && ! isEmpty(errors)) {
     return analyze(errors, defaultMessage);
   }
 
-  return analyze(messageData, defaultMessage);
+  return analyze(message, defaultMessage);
 };
