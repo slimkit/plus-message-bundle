@@ -21,7 +21,7 @@ test('Test message: { message: [ "This is a array message item." ] }', () => {
 
 });
 
-test('Test message: { key1, "This is a object message." }', () => {
+test('Test message: { key1: "This is a object message." }', () => {
 
   const input = 'key1';
   const message = 'This is a object message.';
@@ -34,7 +34,7 @@ test('Test message: { key1, "This is a object message." }', () => {
 
 });
 
-test('Test message: { key1, [ "This is a object message array item." ] }', () => {
+test('Test message: { key1: [ "This is a object message array item." ] }', () => {
 
   const input = 'key1';
   const message = 'This is a object message array item.';
