@@ -89,7 +89,7 @@ var _analyze = __webpack_require__(1);
 
 var _analyze2 = _interopRequireDefault(_analyze);
 
-var _isEmpty = __webpack_require__(3);
+var _isEmpty = __webpack_require__(4);
 
 var _isEmpty2 = _interopRequireDefault(_isEmpty);
 
@@ -98,15 +98,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.analyze = _analyze2.default;
 exports.isEmpty = _isEmpty2.default;
 
-exports.default = function (messageData, defaultMessage) {
-  var errors = messageData.errors;
+exports.default = function (message, defaultMessage) {
+  var errors = message.errors;
 
 
   if (errors && !(0, _isEmpty2.default)(errors)) {
     return (0, _analyze2.default)(errors, defaultMessage);
   }
 
-  return (0, _analyze2.default)(messageData, defaultMessage);
+  return (0, _analyze2.default)(message, defaultMessage);
 };
 
 /***/ }),
@@ -120,40 +120,21 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
 var _Message = __webpack_require__(2);
 
 var _Message2 = _interopRequireDefault(_Message);
 
+var _firstMessage = __webpack_require__(3);
+
+var _firstMessage2 = _interopRequireDefault(_firstMessage);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function (messageData) {
+exports.default = function (message) {
   var defaultMessage = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-  var message = messageData.message;
 
-
-  if (message) {
-    if (Array.isArray(message)) {
-      var _message = _slicedToArray(message, 1),
-          firstMessage = _message[0];
-
-      return new _Message2.default(firstMessage);
-    }
-
-    return new _Message2.default(message);
-  }
-
-  for (var key in messageData) {
-
-    if (Array.isArray(messageData[key])) {
-      var _messageData$key = _slicedToArray(messageData[key], 1),
-          _firstMessage = _messageData$key[0];
-
-      return new _Message2.default(_firstMessage, key);
-    }
-
-    return new _Message2.default(messageData[key], key);
+  for (var key in message) {
+    return new _Message2.default((0, _firstMessage2.default)(message[key]), key === 'message' ? null : key);
   }
 
   return new _Message2.default(defaultMessage);
@@ -203,6 +184,31 @@ exports.default = Message;
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+exports.default = function (message) {
+
+  if (Array.isArray(message)) {
+    var _message = _slicedToArray(message, 1),
+        firstMessage = _message[0];
+
+    return firstMessage;
+  }
+
+  return message;
+};
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
