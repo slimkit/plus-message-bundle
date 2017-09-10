@@ -1,0 +1,4 @@
+{
+  "verbose": true,
+  "testRegex": "\\/es\\/.*\\.test\\.js$"
+}
