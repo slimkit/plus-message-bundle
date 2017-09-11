@@ -166,8 +166,8 @@ var Message = function () {
   }
 
   _createClass(Message, [{
-    key: "getMesaage",
-    value: function getMesaage() {
+    key: "getMessage",
+    value: function getMessage() {
       return this.message;
     }
   }, {

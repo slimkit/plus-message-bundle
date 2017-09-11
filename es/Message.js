@@ -8,7 +8,7 @@ class Message {
     this.input = input;
   }
   
-  getMesaage() {
+  getMessage() {
     return this.message;
   }
   
