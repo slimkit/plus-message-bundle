@@ -5,7 +5,7 @@ test('Test message: { message: "This is a message." }', () => {
   const message = { message: 'This is a message.' };
 
   expect(
-    PlusMessageBundle(message).getMesaage()
+    PlusMessageBundle(message).getMessage()
   ).toBe(
     message.message
   );
@@ -17,7 +17,7 @@ test('Test message: { message: [ "This is a array message item." ] }', () => {
   const message = 'This is a array message item.';
   const data = { message: [ message ] };
 
-  expect(PlusMessageBundle(data).getMesaage()).toBe(message);
+  expect(PlusMessageBundle(data).getMessage()).toBe(message);
 
 });
 
@@ -29,7 +29,7 @@ test('Test message: { key1: "This is a object message." }', () => {
     [input]: message
   });
 
-  expect(Messageable.getMesaage()).toBe(message);
+  expect(Messageable.getMessage()).toBe(message);
   expect(Messageable.getInputKey()).toBe(input);
 
 });
@@ -42,7 +42,7 @@ test('Test message: { key1: [ "This is a object message array item." ] }', () =>
     [input]: message
   });
 
-  expect(Messageable.getMesaage()).toBe(message);
+  expect(Messageable.getMessage()).toBe(message);
   expect(Messageable.getInputKey()).toBe(input);
 
 });
@@ -67,7 +67,7 @@ test(
     }
   });
 
-  expect(Messageable.getMesaage()).toBe(message);
+  expect(Messageable.getMessage()).toBe(message);
   expect(Messageable.getInputKey()).toBe(input);
 
 });
@@ -92,7 +92,14 @@ test(
     }
   });
 
-  expect(Messageable.getMesaage()).toBe(message);
+  expect(Messageable.getMessage()).toBe(message);
   expect(Messageable.getInputKey()).toBe(input);
 
+});
+
+test('Test data is null', () => {
+  const data = null;
+  const Messageable = PlusMessageBundle(data, data);
+  
+  expect(Messageable.getMessage()).toBe(data);
 });

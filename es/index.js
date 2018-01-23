@@ -4,7 +4,7 @@ import isEmpty from './utils/isEmpty';
 export { analyze, isEmpty };
 export default (message, defaultMessage) => {
 
-  const { errors } = message;
+  const { errors } = message || {};
 
   if (errors && ! isEmpty(errors)) {
     return analyze(errors, defaultMessage);

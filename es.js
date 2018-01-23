@@ -99,8 +99,8 @@ exports.analyze = _analyze2.default;
 exports.isEmpty = _isEmpty2.default;
 
 exports.default = function (message, defaultMessage) {
-  var errors = message.errors;
-
+  var _ref = message || {},
+      errors = _ref.errors;
 
   if (errors && !(0, _isEmpty2.default)(errors)) {
     return (0, _analyze2.default)(errors, defaultMessage);
