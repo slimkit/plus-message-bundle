@@ -109,3 +109,13 @@ test('Test text message', () => {
   const Messageable = PlusMessageBundle(message);
   expect(Messageable.getMessage()).toBe(message);
 });
+
+test('Test data.message is empty', () => {
+  const data = {
+    message: '',
+  };
+  const defaultMessage = 'The is default message.';
+  const Messageable = PlusMessageBundle(data, defaultMessage);
+  console.log(Messageable.getMessage());
+  expect(Messageable.getMessage()).toBe(defaultMessage);
+});

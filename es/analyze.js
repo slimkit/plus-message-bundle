@@ -8,7 +8,7 @@ export default (message, defaultMessage = null) => {
 
   for (let key in message) {
     return new Message(
-      firstMessage(message[key]),
+      firstMessage(message[key]) || defaultMessage,
       key === 'message' ? null : key
     );
   }
