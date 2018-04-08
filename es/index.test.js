@@ -103,3 +103,9 @@ test('Test data is null', () => {
   
   expect(Messageable.getMessage()).toBe(data);
 });
+
+test('Test text message', () => {
+  const message = 'The is a text message.';
+  const Messageable = PlusMessageBundle(message);
+  expect(Messageable.getMessage()).toBe(message);
+});

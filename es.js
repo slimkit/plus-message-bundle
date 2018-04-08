@@ -133,6 +133,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = function (message) {
   var defaultMessage = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 
+  if (typeof message === 'string') {
+    return new _Message2.default(message);
+  }
+
   for (var key in message) {
     return new _Message2.default((0, _firstMessage2.default)(message[key]), key === 'message' ? null : key);
   }
