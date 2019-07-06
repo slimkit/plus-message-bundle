@@ -1,6 +1,6 @@
-import path from 'path';
-
-const webpackConfig = {
+const path = require('path');
+module.exports = {
+  mode: 'production',
   entry: path.resolve(__dirname, 'es', 'index.js'),
   output: {
     path: path.join(__dirname),
@@ -19,5 +19,3 @@ const webpackConfig = {
     ]
   }
 };
-
-export default webpackConfig;

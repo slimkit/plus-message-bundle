@@ -1,6 +1,6 @@
 {
   "name": "plus-message-bundle",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "main": "es.js",
   "repository": "https://github.com/slimkit/plus-message-bundle",
   "author": "Seven Du <shiweidu@outlook.com>",
@@ -10,13 +10,14 @@
     "es.js"
   ],
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-jest": "^21.0.2",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "jest": "^21.0.2",
-    "webpack": "^3.5.6"
+    "@babel/core": "^7.5.0",
+    "@babel/preset-env": "^7.5.0",
+    "babel-jest": "^24.8.0",
+    "babel-loader": "^8.0.6",
+    "jest": "^24.8.0",
+    "path": "^0.12.7",
+    "webpack": "^4.35.2",
+    "webpack-cli": "^3.3.5"
   },
   "scripts": {
     "build": "webpack --progress --colors",
