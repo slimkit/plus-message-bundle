@@ -17,7 +17,7 @@
     "jest": "^24.8.0",
     "path": "^0.12.7",
     "webpack": "^4.35.2",
-    "webpack-cli": "^3.3.5"
+    "webpack-cli": "^3.3.12"
   },
   "scripts": {
     "build": "webpack --progress --colors",
